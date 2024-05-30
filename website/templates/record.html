@@ -1,0 +1,40 @@
+{%extends 'base.html'%}
+{%block content%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+    .list-group-item:hover {
+        background-color: #f0f0f0;
+        cursor: pointer
+    }
+    .card-custom {
+        max-width: 25rem;
+        margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+</style>
+
+<h1 style="text-align: center;">Customer Records : {{customer_record.id}}</h1>
+<br>
+<div class="card text-bg-dark mb-3 border-dark mb-3 card-custom" style="width: 19rem; border-radius: 7%;">
+    <div class="card-body">
+        <h5 class="card-title">{{customer_record.first_name}} {{customer_record.last_name}}</h5>
+    </div>
+    <ul class="list-group list-group-flush card text-bg-dark mb-3">
+        <!-- <li class="list-group-item"><strong>ID :</strong> {{customer_record.id}}</li> -->
+        <li class="list-group-item"><strong>Email :</strong> {{customer_record.email}}</li>
+        <li class="list-group-item"><strong>Address :</strong> {{customer_record.address}}</li>
+        <li class="list-group-item"><strong>City :</strong> {{customer_record.city}}</li>
+        <li class="list-group-item"><strong>State :</strong> {{customer_record.state}}</li>
+        <li class="list-group-item"><strong>ZipCode :</strong> {{customer_record.zipcode}}</li>
+        <li class="list-group-item"><strong>Created_at :</strong> {{customer_record.created_at}}</li>
+    </ul>
+    <div style="text-align: center; margin-bottom: 10px">
+        <a href="{%url 'home' %}" class="btn-secondary" style="padding: 5px; border-radius: 20%;">Back</a>
+        <a href="{%url 'delete_record' customer_record.id %}" class="btn-danger" style="padding: 5px; border-radius: 20%;">Delete</a>
+        <a href="{%url 'update_record' customer_record.id %}" class="btn-primary" style="padding: 5px; border-radius: 20%;">Update</a>
+    </div>
+</div>
+
+
+{%endblock%}
